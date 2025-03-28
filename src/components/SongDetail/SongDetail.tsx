@@ -43,6 +43,10 @@ export default function SongDetail() {
     return <div className={styles.error}>{error || 'Song not found'}</div>;
   }
 
+  const isChordLine = (line: string) => {
+    return line.trim().match(/^[A-Ga-gm#b0-9\s]+$/);
+  };
+
   return (
     <div className={styles.container}>
       <Link to="/" className={styles.backButton}>
@@ -80,11 +84,16 @@ export default function SongDetail() {
       <div className={styles.content}>
         {song.verses.map((verse, index) => (
           <div key={index} className={styles.verse}>
-            {verse.content.split('\n').map((line, lineIndex) => (
-              <div key={lineIndex} className={styles.line}>
-                {line}
-              </div>
-            ))}
+            {verse.content.split('\n').map((line, lineIndex) => {
+              if (!showChords && isChordLine(line)) {
+                return null;
+              }
+              return (
+                <div key={lineIndex} className={`${styles.line} ${isChordLine(line) ? styles.chordLine : ''}`}>
+                  {line}
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
