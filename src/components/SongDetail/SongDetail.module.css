@@ -193,6 +193,7 @@
 }
 
 .topBar h1 {
+  flex: 1;
   margin: 0;
   font-size: 24px;
   font-weight: 600;
@@ -213,6 +214,33 @@
 
 .backButton:hover {
   background: #2d3748;
+}
+
+.fontControls {
+  display: flex;
+  gap: 4px;
+}
+
+.fontButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #4a5568;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.fontButton:hover {
+  background: #2d3748;
+}
+
+.fontButton:active {
+  transform: scale(0.95);
 }
 
 .header {

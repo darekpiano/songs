@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Song } from '../../types/Song';
 import styles from './SongDetail.module.css';
-import { FaArrowLeft, FaGuitar, FaInfoCircle } from 'react-icons/fa';
+import { FaArrowLeft, FaGuitar, FaInfoCircle, FaSearchMinus, FaSearchPlus } from 'react-icons/fa';
 import { load } from 'js-yaml';
 
 export const SongDetail = () => {
@@ -12,6 +12,14 @@ export const SongDetail = () => {
   const [error, setError] = useState<string | null>(null);
   const [showChords, setShowChords] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
+  const [fontSize, setFontSize] = useState(16);
+
+  const changeFontSize = (delta: number) => {
+    setFontSize(prev => {
+      const newSize = prev + delta;
+      return newSize >= 12 && newSize <= 24 ? newSize : prev;
+    });
+  };
 
   useEffect(() => {
     const fetchSong = async () => {
@@ -54,6 +62,14 @@ export const SongDetail = () => {
           <FaArrowLeft />
         </Link>
         <h1>Songbook</h1>
+        <div className={styles.fontControls}>
+          <button onClick={() => changeFontSize(-1)} className={styles.fontButton}>
+            <FaSearchMinus />
+          </button>
+          <button onClick={() => changeFontSize(1)} className={styles.fontButton}>
+            <FaSearchPlus />
+          </button>
+        </div>
       </div>
 
       <div className={styles.header}>
@@ -84,7 +100,7 @@ export const SongDetail = () => {
         </div>
       )}
 
-      <div className={styles.content}>
+      <div className={styles.content} style={{ fontSize: `${fontSize}px` }}>
         {song.verses.map((verse, index) => (
           <div key={index} className={styles.verse}>
             {verse.content.split('\n').map((line, lineIndex) => {
@@ -92,7 +108,11 @@ export const SongDetail = () => {
                 return null;
               }
               return (
-                <div key={lineIndex} className={`${styles.line} ${isChordLine(line) ? styles.chordLine : ''}`}>
+                <div 
+                  key={lineIndex} 
+                  className={`${styles.line} ${isChordLine(line) ? styles.chordLine : ''}`}
+                  style={{ fontSize: isChordLine(line) ? `${fontSize * 0.875}px` : `${fontSize}px` }}
+                >
                   {line}
                 </div>
               );
