@@ -49,10 +49,15 @@ export default function SongDetail() {
 
   return (
     <div className={styles.container}>
-      <Link to="/" className={styles.backButton}>
-        <FaArrowLeft /> Back to Songs
-      </Link>
-      
+      <div className={styles.topBar}>
+        <div className={styles.titleGroup}>
+          <Link to="/" className={styles.backButton}>
+            <FaArrowLeft />
+          </Link>
+          <h1>Songbook</h1>
+        </div>
+      </div>
+
       <div className={styles.header}>
         <h1>{song.title}</h1>
         <div className={styles.controls}>
