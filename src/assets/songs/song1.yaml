@@ -1,0 +1,12 @@
+title: "Przykładowa piosenka"
+artist: "Przykładowy artysta"
+key: "C"
+tempo: 120
+chords:
+  - "C"
+  - "Am"
+  - "F"
+  - "G"
+lyrics:
+  - "Przykładowy tekst piosenki"
+  - "Druga linia tekstu" 
