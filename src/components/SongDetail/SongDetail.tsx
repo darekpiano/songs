@@ -50,16 +50,14 @@ export default function SongDetail() {
   return (
     <div className={styles.container}>
       <div className={styles.topBar}>
-        <div className={styles.titleGroup}>
-          <Link to="/" className={styles.backButton}>
-            <FaArrowLeft />
-          </Link>
-          <h1>Songbook</h1>
-        </div>
+        <Link to="/" className={styles.backButton}>
+          <FaArrowLeft />
+        </Link>
+        <h1>Songbook</h1>
       </div>
 
       <div className={styles.header}>
-        <h1>{song.title}</h1>
+        <h2>{song.title}</h2>
         <div className={styles.controls}>
           <button onClick={() => setShowChords(!showChords)} className={styles.button}>
             <FaGuitar /> {showChords ? 'Hide' : 'Show'} Chords
