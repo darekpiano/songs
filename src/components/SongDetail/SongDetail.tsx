@@ -5,7 +5,7 @@ import styles from './SongDetail.module.css';
 import { FaArrowLeft, FaGuitar, FaInfoCircle } from 'react-icons/fa';
 import { load } from 'js-yaml';
 
-export default function SongDetail() {
+export const SongDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [song, setSong] = useState<Song | null>(null);
   const [loading, setLoading] = useState(true);
