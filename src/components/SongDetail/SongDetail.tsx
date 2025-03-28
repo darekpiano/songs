@@ -10,7 +10,7 @@ export default function SongDetail() {
   const [song, setSong] = useState<Song | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [showChords, setShowChords] = useState(true);
+  const [showChords, setShowChords] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
 
   useEffect(() => {
