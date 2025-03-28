@@ -16,7 +16,7 @@ export function SongList() {
         
         // Sprawdź pierwsze 100 plików
         for (let id = 1; id <= 100; id++) {
-          const promise = fetch(`/songs/song${id}.yaml`)
+          const promise = fetch(`/songs/songs/song${id}.yaml`)
             .then(async response => {
               if (!response.ok) return null;
               const text = await response.text();
@@ -63,18 +63,11 @@ export function SongList() {
   return (
     <div className={styles.songList}>
       {songs.map(song => (
-        <Link key={song.id} to={`/song/${song.id}`} className={styles.songItem}>
-          <h2 className={styles.title}>{song.title}</h2>
-          <p className={styles.author}>{song.author}</p>
-          {song.tags && song.tags.length > 0 && (
-            <div className={styles.tags}>
-              {song.tags.map((tag, index) => (
-                <span key={index} className={styles.tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
+        <Link key={song.id} to={`/song/${song.id}`} className={styles.songLink}>
+          <div className={styles.songItem}>
+            <h3>{song.title}</h3>
+            <p>{song.author}</p>
+          </div>
         </Link>
       ))}
     </div>

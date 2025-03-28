@@ -16,7 +16,7 @@ export default function SongDetail() {
   useEffect(() => {
     const fetchSong = async () => {
       try {
-        const response = await fetch(`/songs/song${id}.yaml`);
+        const response = await fetch(`/songs/songs/song${id}.yaml`);
         if (!response.ok) {
           throw new Error('Song not found');
         }
@@ -44,55 +44,47 @@ export default function SongDetail() {
   }
 
   return (
-    <div className={styles.songDetail}>
-      <div className={styles.controls}>
-        <Link to="/" className={styles.backLink}>
-          <FaArrowLeft />
-        </Link>
-        <h1 className={styles.title}>{song.title}</h1>
-        <div className={styles.buttons}>
-          <button
-            className={`${styles.controlButton} ${showChords ? styles.active : ''}`}
-            onClick={() => setShowChords(!showChords)}
-            title="Toggle chords"
-          >
-            <FaGuitar />
+    <div className={styles.container}>
+      <Link to="/" className={styles.backButton}>
+        <FaArrowLeft /> Back to Songs
+      </Link>
+      
+      <div className={styles.header}>
+        <h1>{song.title}</h1>
+        <div className={styles.controls}>
+          <button onClick={() => setShowChords(!showChords)} className={styles.button}>
+            <FaGuitar /> {showChords ? 'Hide' : 'Show'} Chords
           </button>
-          <button
-            className={`${styles.controlButton} ${showInfo ? styles.active : ''}`}
-            onClick={() => setShowInfo(!showInfo)}
-            title="Toggle info"
-          >
-            <FaInfoCircle />
+          <button onClick={() => setShowInfo(!showInfo)} className={styles.button}>
+            <FaInfoCircle /> {showInfo ? 'Hide' : 'Show'} Info
           </button>
         </div>
       </div>
 
       {showInfo && (
-        <div className={styles.songInfo}>
-          <p className={styles.author}>Author: {song.author}</p>
-          <p className={styles.year}>Year: {song.year}</p>
+        <div className={styles.info}>
+          <p><strong>Author:</strong> {song.author}</p>
+          <p><strong>Year:</strong> {song.year}</p>
+          <p><strong>Key:</strong> {song.key}</p>
           {song.tags && song.tags.length > 0 && (
             <div className={styles.tags}>
+              <strong>Tags:</strong>
               {song.tags.map((tag, index) => (
-                <span key={index} className={styles.tag}>
-                  {tag}
-                </span>
+                <span key={index} className={styles.tag}>{tag}</span>
               ))}
             </div>
-          )}
-          {showChords && song.key && (
-            <p className={styles.chordsInfo}>Key: {song.key}</p>
           )}
         </div>
       )}
 
-      <div className={styles.songContent}>
+      <div className={styles.content}>
         {song.verses.map((verse, index) => (
           <div key={index} className={styles.verse}>
-            <pre className={styles.content}>
-              {showChords ? verse.content : verse.content.split('\n').filter(line => !line.trim().match(/^[A-Ga-gm#b0-9\s]+$/)).join('\n')}
-            </pre>
+            {verse.content.split('\n').map((line, lineIndex) => (
+              <div key={lineIndex} className={styles.line}>
+                {line}
+              </div>
+            ))}
           </div>
         ))}
       </div>
