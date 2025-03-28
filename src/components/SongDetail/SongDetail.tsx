@@ -48,7 +48,7 @@ export const SongDetail = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} song-detail`}>
       <div className={styles.topBar}>
         <Link to="/" className={styles.backButton}>
           <FaArrowLeft />
