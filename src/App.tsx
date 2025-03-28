@@ -1,6 +1,6 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { SongList } from './components/SongList/SongList'
-import SongDetail from './components/SongDetail/SongDetail'
+import { SongDetail } from './components/SongDetail/SongDetail'
 import './App.css'
 
 function App() {
