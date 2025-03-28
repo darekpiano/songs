@@ -1,0 +1,43 @@
+id: '8'
+title: "Holy, Holy, Holy"
+author: "Reginald Heber"
+year: "1826"
+tags: ["hymn", "praise", "trinity", "traditional"]
+key: "D"
+verses:
+  - content: |
+      D       G        D        A
+      Holy, holy, holy! Lord God Almighty!
+      D       G        A        D
+      Early in the morning our song shall rise to Thee;
+      D       G        D        A
+      Holy, holy, holy! Merciful and mighty!
+      D       G        A        D
+      God in three persons, blessed Trinity!
+  - content: |
+      D       G        D        A
+      Holy, holy, holy! All the saints adore Thee,
+      D       G        A        D
+      Casting down their golden crowns around the glassy sea;
+      D       G        D        A
+      Cherubim and seraphim falling down before Thee,
+      D       G        A        D
+      Which wert, and art, and evermore shalt be.
+  - content: |
+      D       G        D        A
+      Holy, holy, holy! Though the darkness hide Thee,
+      D       G        A        D
+      Though the eye of sinful man Thy glory may not see;
+      D       G        D        A
+      Only Thou art holy; there is none beside Thee,
+      D       G        A        D
+      Perfect in power, in love, and purity.
+  - content: |
+      D       G        D        A
+      Holy, holy, holy! Lord God Almighty!
+      D       G        A        D
+      All Thy works shall praise Thy name in earth, and sky, and sea;
+      D       G        D        A
+      Holy, holy, holy! Merciful and mighty!
+      D       G        A        D
+      God in three persons, blessed Trinity!

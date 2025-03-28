@@ -1,0 +1,171 @@
+.songDetail {
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.controls {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.backLink {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  flex: 1;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.controlButton {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #666;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controlButton:hover {
+  background: #f8f9fa;
+}
+
+.controlButton.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.songInfo {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.author {
+  color: #666;
+  margin: 0 0 0.5rem 0;
+}
+
+.year {
+  color: #888;
+  margin: 0 0 0.5rem 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: #e9ecef;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #495057;
+}
+
+.chordsInfo {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.songContent {
+  flex: 1;
+  padding: 1rem;
+  background: white;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.songContent::-webkit-scrollbar {
+  display: none;
+}
+
+.verse {
+  margin: 0 0 2rem 0;
+  font-family: monospace;
+}
+
+.verse:last-child {
+  margin-bottom: 2rem;
+}
+
+.content {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  white-space: pre;
+  color: #333;
+  letter-spacing: 0.5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #dc3545;
+}
+
+@media (max-width: 768px) {
+  .songDetail {
+    height: 100vh;
+  }
+  
+  .title {
+    font-size: 1rem;
+  }
+  
+  .songContent {
+    padding: 0.5rem;
+  }
+  
+  .content {
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+  }
+} 

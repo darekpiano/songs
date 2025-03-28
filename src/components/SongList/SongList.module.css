@@ -1,0 +1,68 @@
+.songList {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.songItem {
+  display: block;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s;
+}
+
+.songItem:hover {
+  transform: translateY(-2px);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.author {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  background: #e9ecef;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #495057;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #dc3545;
+}
+
+@media (max-width: 768px) {
+  .songList {
+    padding: 0.5rem;
+  }
+
+  .songsGrid {
+    grid-template-columns: 1fr;
+  }
+} 
