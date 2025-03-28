@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Song } from '../../types/Song';
 import styles from './SongDetail.module.css';
-import { FaArrowLeft, FaGuitar, FaInfoCircle, FaSearchMinus, FaSearchPlus } from 'react-icons/fa';
+import { FaArrowLeft, FaGuitar, FaInfoCircle } from 'react-icons/fa';
 import { load } from 'js-yaml';
 
 export const SongDetail = () => {
@@ -64,10 +64,10 @@ export const SongDetail = () => {
         <h1>Songbook</h1>
         <div className={styles.fontControls}>
           <button onClick={() => changeFontSize(-1)} className={styles.fontButton}>
-            <FaSearchMinus />
+            A-
           </button>
           <button onClick={() => changeFontSize(1)} className={styles.fontButton}>
-            <FaSearchPlus />
+            A+
           </button>
         </div>
       </div>

@@ -228,12 +228,14 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 6px;
   background: #4a5568;
   color: white;
   border: none;
   cursor: pointer;
   font-size: 14px;
+  font-weight: bold;
+  padding: 0;
 }
 
 .fontButton:hover {
