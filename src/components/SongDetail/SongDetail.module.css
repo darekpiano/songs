@@ -171,9 +171,12 @@
 }
 
 .container {
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 8px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .topBar {
@@ -181,7 +184,12 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 16px;
-  padding: 8px 0;
+  padding: 8px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .topBar h1 {
@@ -272,24 +280,33 @@
 
 .content {
   font-size: 14px;
-  line-height: 1.3;
+  line-height: 1.5;
+  padding: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+  flex: 1;
 }
 
 .verse {
-  margin-bottom: 12px;
-  padding: 6px;
+  margin-bottom: 16px;
+  padding: 8px;
   background: #f8f8f8;
   border-radius: 4px;
+  overflow-x: auto;
+  white-space: pre-wrap;
 }
 
 .line {
-  margin: 1px 0;
+  margin: 2px 0;
+  font-size: 16px;
 }
 
 .chordLine {
   color: #4a5568;
   font-family: monospace;
-  font-size: 13px;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 .loading {
@@ -306,36 +323,42 @@
 
 @media (max-width: 600px) {
   .container {
+    padding: 0;
+  }
+
+  .topBar {
     padding: 8px;
+    margin-bottom: 8px;
   }
 
   .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    padding: 0 8px;
   }
 
-  .header h1 {
-    font-size: 20px;
-  }
-
-  .controls {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .button {
-    flex: 1;
-    justify-content: center;
+  .content {
+    padding: 4px;
+    font-size: 16px;
   }
 
   .verse {
-    margin-bottom: 10px;
-    padding: 6px;
+    margin-bottom: 12px;
+    padding: 8px 4px;
   }
 
-  .info {
+  .line {
+    font-size: 14px;
+  }
+
+  .chordLine {
+    font-size: 12px;
+  }
+
+  .controls {
     padding: 8px;
-    font-size: 13px;
+  }
+
+  .button {
+    padding: 8px;
+    font-size: 12px;
   }
 } 
