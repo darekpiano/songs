@@ -1,0 +1,34 @@
+id: "1"
+title: "Amazing Grace"
+author: "John Newton"
+year: "1779"
+tags: ["hymn", "worship"]
+key: "G"
+verses:
+  - content: |
+      G                D             G        C
+      Amazing grace! How sweet the sound
+      G              Em            D        G
+      That saved a wretch like me!
+      G                D             G        C
+      I once was lost, but now am found
+      G              Em            D        G
+      Was blind, but now I see.
+  - content: |
+      G                D             G        C
+      'Twas grace that taught my heart to fear,
+      G              Em            D        G
+      And grace my fears relieved;
+      G                D             G        C
+      How precious did that grace appear
+      G              Em            D        G
+      The hour I first believed.
+  - content: |
+      G                D             G        C
+      Through many dangers, toils and snares,
+      G              Em            D        G
+      I have already come;
+      G                D             G        C
+      'Tis grace hath brought me safe thus far,
+      G              Em            D        G
+      And grace will lead me home. 
