@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom';
 import { Song } from '../../types/Song';
 import styles from './SongList.module.css';
 import { load } from 'js-yaml';
+import { FaSearch } from 'react-icons/fa';
 
 export function SongList() {
   const [songs, setSongs] = useState<Song[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
+
+  // Generuj alfabet
+  const alphabet = '#AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻ'.split('');
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -38,7 +44,7 @@ export function SongList() {
         validSongs.sort((a, b) => {
           if (!a.title) return 1;
           if (!b.title) return -1;
-          return a.title.localeCompare(b.title);
+          return a.title.localeCompare(b.title, 'pl');
         });
         
         setSongs(validSongs);
@@ -52,24 +58,94 @@ export function SongList() {
     fetchSongs();
   }, []);
 
+  // Funkcja do sprawdzania, czy piosenka zawiera szukaną frazę
+  const songMatchesSearch = (song: Song, query: string): boolean => {
+    if (!query) return true;
+    
+    const searchLower = query.toLowerCase();
+    
+    // Szukaj w tytule
+    if (song.title.toLowerCase().includes(searchLower)) return true;
+    
+    // Szukaj w treści
+    for (const verse of song.verses) {
+      if (verse.content.toLowerCase().includes(searchLower)) return true;
+    }
+    
+    // Szukaj w autorze
+    if (song.author?.toLowerCase().includes(searchLower)) return true;
+    
+    return false;
+  };
+
+  // Filtruj i grupuj piosenki
+  const filteredAndGroupedSongs = () => {
+    const filtered = songs.filter(song => songMatchesSearch(song, searchQuery));
+    
+    if (!selectedLetter) return filtered;
+    
+    return filtered.filter(song => {
+      const firstLetter = song.title.charAt(0).toUpperCase();
+      if (selectedLetter === '#') {
+        return !'AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻ'.includes(firstLetter);
+      }
+      return firstLetter === selectedLetter;
+    });
+  };
+
   if (loading) {
-    return <div className={styles.loading}>Loading...</div>;
+    return <div className={styles.loading}>Ładowanie...</div>;
   }
 
   if (error) {
     return <div className={styles.error}>{error}</div>;
   }
 
+  const groupedSongs = filteredAndGroupedSongs();
+
   return (
-    <div className={styles.songList}>
-      {songs.map(song => (
-        <Link key={song.id} to={`/song/${song.id}`} className={styles.songLink}>
-          <div className={styles.songItem}>
-            <h3>{song.title}</h3>
-            <p>{song.author}</p>
+    <div className={styles.container}>
+      <div className={styles.searchBar}>
+        <div className={styles.searchInputWrapper}>
+          <FaSearch className={styles.searchIcon} />
+          <input
+            type="text"
+            placeholder="Szukaj w tytułach i treści..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className={styles.searchInput}
+          />
+        </div>
+      </div>
+
+      <div className={styles.alphabet}>
+        {alphabet.map((letter) => (
+          <button
+            key={letter}
+            className={`${styles.letterButton} ${selectedLetter === letter ? styles.selected : ''}`}
+            onClick={() => setSelectedLetter(selectedLetter === letter ? null : letter)}
+          >
+            {letter}
+          </button>
+        ))}
+      </div>
+
+      <div className={styles.songList}>
+        {groupedSongs.length === 0 ? (
+          <div className={styles.noResults}>
+            Nie znaleziono piosenek{searchQuery ? ' dla "' + searchQuery + '"' : ''}
           </div>
-        </Link>
-      ))}
+        ) : (
+          groupedSongs.map(song => (
+            <Link key={song.id} to={`/song/${song.id}`} className={styles.songLink}>
+              <div className={styles.songItem}>
+                <h3>{song.title}</h3>
+                <p>{song.author}</p>
+              </div>
+            </Link>
+          ))
+        )}
+      </div>
     </div>
   );
 } 

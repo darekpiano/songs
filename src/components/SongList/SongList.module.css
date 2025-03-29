@@ -1,31 +1,106 @@
-.songList {
-  padding: 8px;
-  max-width: 100%;
+.container {
+  max-width: 800px;
   margin: 0 auto;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.searchBar {
+  margin-bottom: 16px;
+  padding: 8px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.searchInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  color: #4a5568;
+  font-size: 16px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #1a202c;
+  background: #ffffff;
+  transition: all 0.2s;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #4a5568;
+  box-shadow: 0 0 0 3px rgba(74, 85, 104, 0.2);
+}
+
+.searchInput::placeholder {
+  color: #a0aec0;
+}
+
+.alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 16px;
+  padding: 8px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.letterButton {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background: #f7fafc;
+  color: #4a5568;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.letterButton:hover {
+  background: #edf2f7;
+}
+
+.letterButton.selected {
+  background: #4a5568;
+  color: #ffffff;
+}
+
+.songList {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background: #ffffff;
 }
 
 .songLink {
   text-decoration: none;
   color: inherit;
-  display: block;
 }
 
 .songItem {
-  display: block;
-  padding: 12px;
+  padding: 16px;
   background: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
 }
 
-.songItem:active {
-  transform: scale(0.98);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+.songItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .songItem h3 {
@@ -41,63 +116,73 @@
   color: #4a5568;
 }
 
-.title {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #1a202c;
-}
-
-.author {
-  margin: 0.5rem 0 0;
-  font-size: 0.9rem;
-  color: #4a5568;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.tag {
-  background: #e0e0e0;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  color: #1a202c;
-}
-
-.loading, .error {
+.noResults {
   text-align: center;
-  padding: 2rem;
-  font-size: 1.2rem;
-  color: #1a202c;
+  padding: 32px;
+  color: #4a5568;
+  font-size: 16px;
+  background: #f7fafc;
+  border-radius: 8px;
+}
+
+.loading {
+  text-align: center;
+  padding: 32px;
+  color: #4a5568;
+  font-size: 16px;
 }
 
 .error {
-  color: #dc3545;
+  text-align: center;
+  padding: 32px;
+  color: #e53e3e;
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {
-  .songList {
+  .container {
     padding: 8px;
-    gap: 8px;
-    background: #ffffff;
+  }
+
+  .searchBar {
+    margin-bottom: 12px;
+  }
+
+  .searchInput {
+    padding: 10px 10px 10px 36px;
+    font-size: 14px;
+  }
+
+  .searchIcon {
+    left: 10px;
+    font-size: 14px;
+  }
+
+  .alphabet {
+    gap: 2px;
+    padding: 6px;
+    margin-bottom: 12px;
+  }
+
+  .letterButton {
+    padding: 6px 8px;
+    font-size: 12px;
   }
 
   .songItem {
     padding: 12px;
-    background: #ffffff;
   }
 
   .songItem h3 {
-    font-size: 15px;
-    color: #1a202c;
+    font-size: 14px;
   }
 
   .songItem p {
-    font-size: 13px;
-    color: #4a5568;
+    font-size: 12px;
+  }
+
+  .noResults {
+    padding: 24px;
+    font-size: 14px;
   }
 } 
