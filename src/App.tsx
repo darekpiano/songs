@@ -8,7 +8,7 @@ function App() {
     <Router>
       <div className="app">
         <header>
-          <h3>Songbook</h3>
+          <h1>Songbook</h1>
         </header>
         <main>
           <Routes>
