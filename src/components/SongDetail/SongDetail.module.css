@@ -134,8 +134,12 @@
   margin-bottom: 0.5rem;
 }
 
+.linePair.chordsHidden {
+  margin-bottom: 0.1rem;
+}
+
 .linePair:only-child {
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
 }
 
 .chordLine {
@@ -150,11 +154,6 @@
 .textLine {
   white-space: pre;
   position: relative;
-}
-
-/* Style dla ukrytych akordów - mniejsze odstępy */
-.linePair.chordsHidden {
-  margin-bottom: 0.2rem;
 }
 
 .line {
