@@ -121,6 +121,7 @@
   font-family: monospace;
   text-align: left;
   padding-left: 16px;
+  background: #ffffff;
 }
 
 .verse:last-child {
@@ -132,6 +133,7 @@
   text-align: left;
   padding: 0;
   margin: 0;
+  color: #1a202c;
 }
 
 .chordLine {
@@ -145,9 +147,10 @@
   padding: 16px 0;
   font-size: 1rem;
   line-height: 1.5;
-  color: #333;
+  color: #1a202c;
   overflow-x: auto;
   text-align: left;
+  background: #ffffff;
 }
 
 .loading, .error {
@@ -186,6 +189,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #ffffff;
 }
 
 .topBar {
@@ -194,7 +198,7 @@
   gap: 12px;
   margin-bottom: 16px;
   padding: 8px;
-  background: #fff;
+  background: #ffffff;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -333,33 +337,59 @@
 @media (max-width: 600px) {
   .container {
     padding: 0;
+    background: #ffffff;
   }
 
   .topBar {
     padding: 8px;
     margin-bottom: 8px;
+    background: #ffffff;
   }
 
   .header {
     padding: 0 8px;
+    background: #ffffff;
+  }
+
+  .header h2 {
+    color: #1a202c;
   }
 
   .content {
-    padding: 4px;
+    padding: 8px;
     font-size: 16px;
+    background: #ffffff;
+    color: #1a202c;
   }
 
   .verse {
     margin-bottom: 12px;
     padding: 8px 4px;
+    background: #ffffff;
   }
 
   .line {
     font-size: 14px;
+    color: #1a202c;
   }
 
   .chordLine {
     font-size: 12px;
+    color: #4a5568;
+  }
+
+  .info {
+    background: #f5f5f5;
+    color: #1a202c;
+  }
+
+  .info p {
+    color: #1a202c;
+  }
+
+  .tag {
+    background: #e0e0e0;
+    color: #1a202c;
   }
 
   .controls {
