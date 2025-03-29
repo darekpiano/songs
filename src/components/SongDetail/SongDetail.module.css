@@ -283,32 +283,28 @@
 }
 
 .fontButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 6px;
   background: #4a5568;
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   padding: 0;
-  -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   user-select: none;
   -webkit-user-select: none;
-  -webkit-touch-callout: none;
-}
-
-.fontButton:hover {
-  background: #2d3748;
 }
 
 .fontButton:active {
+  background: #2d3748;
   transform: scale(0.95);
+}
+
+.fontButton:hover {
   background: #2d3748;
 }
 
@@ -468,29 +464,8 @@
   }
 
   .fontButton {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-    background: #4a5568;
-    color: white;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    margin: 0;
-    padding: 0;
-    position: relative;
-    isolation: isolate;
-  }
-
-  .fontButton::after {
-    content: '';
-    position: absolute;
-    inset: -8px;
-    z-index: -1;
-  }
-
-  .fontButton:active {
-    transform: scale(0.95);
-    background: #2d3748;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
   }
 } 

@@ -15,10 +15,16 @@ export const SongDetail = () => {
   const [fontSize, setFontSize] = useState(16);
 
   const changeFontSize = (delta: number) => {
-    setFontSize(prev => {
-      const newSize = prev + delta;
-      return newSize >= 12 && newSize <= 24 ? newSize : prev;
+    setFontSize(prevSize => {
+      const newSize = prevSize + delta;
+      return Math.max(12, Math.min(24, newSize));
     });
+  };
+
+  const handleFontSizeChange = (delta: number) => (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    changeFontSize(delta);
   };
 
   useEffect(() => {
@@ -118,20 +124,18 @@ export const SongDetail = () => {
         <h1>Songbook</h1>
         <div className={styles.fontControls}>
           <button 
-            onClick={() => changeFontSize(-1)} 
-            onTouchStart={() => changeFontSize(-1)}
-            className={styles.fontButton}
-            type="button"
-            aria-label="Zmniejsz czcionkę"
+            className={styles.fontButton} 
+            onClick={handleFontSizeChange(-1)}
+            onTouchEnd={handleFontSizeChange(-1)}
+            aria-label="Zmniejsz rozmiar czcionki"
           >
             A-
           </button>
           <button 
-            onClick={() => changeFontSize(1)} 
-            onTouchStart={() => changeFontSize(1)}
-            className={styles.fontButton}
-            type="button"
-            aria-label="Zwiększ czcionkę"
+            className={styles.fontButton} 
+            onClick={handleFontSizeChange(1)}
+            onTouchEnd={handleFontSizeChange(1)}
+            aria-label="Zwiększ rozmiar czcionki"
           >
             A+
           </button>
