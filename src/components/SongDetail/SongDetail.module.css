@@ -118,7 +118,7 @@
 
 .verse {
   margin: 0 0 1rem 0;
-  font-family: monospace;
+  font-family: 'Courier New', monospace;
   text-align: left;
   padding-left: 16px;
   background: #ffffff;
@@ -137,6 +137,8 @@
   color: #1a202c;
   position: relative;
   line-height: 1.6;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0;
 }
 
 .chordLine {
@@ -146,6 +148,9 @@
   height: 1.2em;
   line-height: 1.2;
   letter-spacing: 0;
+  font-family: 'Courier New', monospace;
+  white-space: pre;
+  tab-size: 4;
 }
 
 .chordLine + .line {
@@ -161,7 +166,7 @@
   overflow-x: auto;
   text-align: left;
   background: #ffffff;
-  font-family: monospace;
+  font-family: 'Courier New', monospace;
 }
 
 .loading, .error {
@@ -195,17 +200,20 @@
   .verse {
     padding-left: 8px;
     margin-bottom: 0.8rem;
+    font-size: 14px;
   }
 
   .line {
     font-size: 14px;
     line-height: 1.6;
+    letter-spacing: 0;
   }
 
   .chordLine {
     font-size: 12px;
     height: 1.2em;
     line-height: 1.2;
+    letter-spacing: 0;
   }
 
   .chordLine + .line {
