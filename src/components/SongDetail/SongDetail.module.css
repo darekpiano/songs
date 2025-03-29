@@ -377,6 +377,11 @@
     background: #ffffff;
   }
 
+  .topBar h1 {
+    color: #1a202c;
+    font-size: 20px;
+  }
+
   .header {
     padding: 0 8px;
     background: #ffffff;
