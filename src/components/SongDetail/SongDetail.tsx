@@ -21,9 +21,7 @@ export const SongDetail = () => {
     });
   };
 
-  const handleFontSizeChange = (delta: number) => (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleFontSizeClick = (delta: number) => {
     changeFontSize(delta);
   };
 
@@ -125,16 +123,14 @@ export const SongDetail = () => {
         <div className={styles.fontControls}>
           <button 
             className={styles.fontButton} 
-            onClick={handleFontSizeChange(-1)}
-            onTouchEnd={handleFontSizeChange(-1)}
+            onClick={() => handleFontSizeClick(-1)}
             aria-label="Zmniejsz rozmiar czcionki"
           >
             A-
           </button>
           <button 
             className={styles.fontButton} 
-            onClick={handleFontSizeChange(1)}
-            onTouchEnd={handleFontSizeChange(1)}
+            onClick={() => handleFontSizeClick(1)}
             aria-label="Zwiększ rozmiar czcionki"
           >
             A+

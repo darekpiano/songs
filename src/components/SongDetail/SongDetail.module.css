@@ -183,49 +183,6 @@
   color: #dc3545;
 }
 
-@media (max-width: 768px) {
-  .songDetail {
-    height: 100vh;
-  }
-  
-  .title {
-    font-size: 1rem;
-  }
-  
-  .songContent {
-    padding: 0.5rem;
-  }
-  
-  .content {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .verse {
-    padding-left: 8px;
-    margin-bottom: 0.8rem;
-    font-size: 14px;
-  }
-
-  .line {
-    font-size: 14px;
-    line-height: 1.6;
-    letter-spacing: 0;
-  }
-
-  .chordLine {
-    font-size: 14px;
-    height: 1.6em;
-    line-height: 1.6;
-    letter-spacing: 0;
-    font-weight: normal;
-  }
-
-  .chordLine + .line {
-    margin-top: 0;
-  }
-}
-
 .container {
   max-width: 100%;
   margin: 0 auto;
@@ -276,7 +233,7 @@
 
 .fontControls {
   display: flex;
-  gap: 4px;
+  gap: 8px;
   margin-left: auto;
   z-index: 2;
   user-select: none;
@@ -381,91 +338,4 @@
   text-align: center;
   padding: 20px;
   color: #d32f2f;
-}
-
-@media (max-width: 600px) {
-  .container {
-    padding: 0;
-    background: #ffffff;
-  }
-
-  .topBar {
-    padding: 8px;
-    margin-bottom: 8px;
-    background: #ffffff;
-  }
-
-  .topBar h1 {
-    color: #1a202c;
-    font-size: 20px;
-  }
-
-  .header {
-    padding: 0 8px;
-    background: #ffffff;
-  }
-
-  .header h2 {
-    color: #1a202c;
-  }
-
-  .content {
-    padding: 8px;
-    font-size: 16px;
-    background: #ffffff;
-    color: #1a202c;
-  }
-
-  .verse {
-    margin-bottom: 12px;
-    padding: 8px 4px;
-    background: #ffffff;
-  }
-
-  .line {
-    font-size: 14px;
-    color: #1a202c;
-  }
-
-  .chordLine {
-    font-size: 12px;
-    color: #4a5568;
-  }
-
-  .info {
-    background: #f5f5f5;
-    color: #1a202c;
-  }
-
-  .info p {
-    color: #1a202c;
-  }
-
-  .tag {
-    background: #e0e0e0;
-    color: #1a202c;
-  }
-
-  .controls {
-    padding: 8px;
-  }
-
-  .button {
-    padding: 8px;
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 768px) {
-  .fontControls {
-    gap: 8px;
-    margin-left: 8px;
-    padding: 4px;
-  }
-
-  .fontButton {
-    width: 44px;
-    height: 44px;
-    font-size: 18px;
-  }
 } 
