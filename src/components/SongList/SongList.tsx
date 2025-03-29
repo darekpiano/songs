@@ -14,13 +14,17 @@ export function SongList() {
 
   // Generuj alfabet
   const alphabet = '#AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻ'.split('');
+  
+  // Funkcja sprawdzająca, czy znak jest literą
+  const isLetter = (char: string) => {
+    return /^[A-ZĄĆĘŁŃÓŚŹŻ]$/i.test(char);
+  };
 
   useEffect(() => {
     const fetchSongs = async () => {
       try {
         const songPromises = [];
         
-        // Sprawdź pierwsze 100 plików
         for (let id = 1; id <= 100; id++) {
           const promise = fetch(`/songs/songs/song${id}.yaml`)
             .then(async response => {
@@ -85,11 +89,11 @@ export function SongList() {
     if (!selectedLetter) return filtered;
     
     return filtered.filter(song => {
-      const firstLetter = song.title.charAt(0).toUpperCase();
+      const firstChar = song.title.charAt(0).toUpperCase();
       if (selectedLetter === '#') {
-        return !'AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻ'.includes(firstLetter);
+        return !isLetter(firstChar);
       }
-      return firstLetter === selectedLetter;
+      return firstChar === selectedLetter;
     });
   };
 
