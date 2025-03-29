@@ -117,10 +117,22 @@ export const SongDetail = () => {
         </Link>
         <h1>Songbook</h1>
         <div className={styles.fontControls}>
-          <button onClick={() => changeFontSize(-1)} className={styles.fontButton}>
+          <button 
+            onClick={() => changeFontSize(-1)} 
+            onTouchStart={() => changeFontSize(-1)}
+            className={styles.fontButton}
+            type="button"
+            aria-label="Zmniejsz czcionkę"
+          >
             A-
           </button>
-          <button onClick={() => changeFontSize(1)} className={styles.fontButton}>
+          <button 
+            onClick={() => changeFontSize(1)} 
+            onTouchStart={() => changeFontSize(1)}
+            className={styles.fontButton}
+            type="button"
+            aria-label="Zwiększ czcionkę"
+          >
             A+
           </button>
         </div>

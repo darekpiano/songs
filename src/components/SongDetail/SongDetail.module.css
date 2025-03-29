@@ -279,6 +279,7 @@
   gap: 4px;
   margin-left: auto;
   z-index: 2;
+  user-select: none;
 }
 
 .fontButton {
@@ -297,6 +298,9 @@
   padding: 0;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .fontButton:hover {
@@ -458,18 +462,30 @@
 
 @media (max-width: 768px) {
   .fontControls {
-    gap: 6px;
+    gap: 8px;
     margin-left: 8px;
+    padding: 4px;
   }
 
   .fontButton {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     font-size: 16px;
     background: #4a5568;
     color: white;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .fontButton::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    z-index: -1;
   }
 
   .fontButton:active {
