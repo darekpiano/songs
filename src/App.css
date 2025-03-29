@@ -106,11 +106,13 @@ h2 {
   header {
     margin-bottom: 0;
     background: #ffffff;
+    padding: 8px;
   }
   
   header h1 {
     font-size: 24px;
     color: #1a202c;
+    font-weight: 600;
   }
   
   main {

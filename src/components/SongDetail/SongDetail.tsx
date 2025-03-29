@@ -67,6 +67,48 @@ export const SongDetail = () => {
            );
   };
 
+  const renderVerse = (verse: { content: string }, index: number) => {
+    const lines = verse.content.split('\n');
+    let currentPair: string[] = [];
+    const pairs: string[][] = [];
+
+    // Grupuj linie parami (akord + tekst)
+    lines.forEach((line, i) => {
+      if (line.trim() === '') return;
+      
+      if (isChordLine(line)) {
+        currentPair = [line, ''];
+      } else {
+        if (currentPair.length === 0) {
+          currentPair = ['', line];
+        } else {
+          currentPair[1] = line;
+        }
+        pairs.push([...currentPair]);
+        currentPair = [];
+      }
+    });
+
+    return (
+      <div key={index} className={styles.verse}>
+        <pre className={styles.verseContent}>
+          {pairs.map((pair, pairIndex) => (
+            <div key={pairIndex} className={styles.linePair}>
+              {showChords && (
+                <div className={styles.chordLine}>
+                  {pair[0]}
+                </div>
+              )}
+              <div className={styles.textLine}>
+                {pair[1]}
+              </div>
+            </div>
+          ))}
+        </pre>
+      </div>
+    );
+  };
+
   return (
     <div className={`${styles.container} song-detail`}>
       <div className={styles.topBar}>
@@ -113,24 +155,7 @@ export const SongDetail = () => {
       )}
 
       <div className={styles.content} style={{ fontSize: `${fontSize}px` }}>
-        {song.verses.map((verse, index) => (
-          <div key={index} className={styles.verse}>
-            {verse.content.split('\n').map((line, lineIndex) => {
-              if (!showChords && isChordLine(line)) {
-                return null;
-              }
-              return (
-                <div 
-                  key={lineIndex} 
-                  className={`${styles.line} ${isChordLine(line) ? styles.chordLine : ''}`}
-                  style={{ fontSize: isChordLine(line) ? `${fontSize * 0.875}px` : `${fontSize}px` }}
-                >
-                  {line}
-                </div>
-              );
-            })}
-          </div>
-        ))}
+        {song.verses.map((verse, index) => renderVerse(verse, index))}
       </div>
     </div>
   );
