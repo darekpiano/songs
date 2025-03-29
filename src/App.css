@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  background: #ffffff;
 }
 
 .logo {
@@ -47,13 +48,14 @@
   flex-direction: column;
   width: 100%;
   overflow-x: hidden;
+  background: #ffffff;
 }
 
 header {
   text-align: center;
   margin-bottom: 1rem;
   padding: 0.5rem;
-  background: #fff;
+  background: #ffffff;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -79,6 +81,7 @@ main {
   margin: 0 auto;
   padding: 0;
   overflow-x: hidden;
+  background: #ffffff;
 }
 
 .song-list, .song-detail {
@@ -93,18 +96,31 @@ h2 {
 @media (max-width: 768px) {
   #root {
     padding: 0;
+    background: #ffffff;
+  }
+  
+  .app {
+    background: #ffffff;
   }
   
   header {
     margin-bottom: 0;
+    background: #ffffff;
   }
   
   header h1 {
     font-size: 24px;
+    color: #1a202c;
   }
   
   main {
     padding: 0;
+    background: #ffffff;
+  }
+  
+  .song-list {
+    padding: 8px;
+    background: #ffffff;
   }
   
   .song-list, .song-detail {

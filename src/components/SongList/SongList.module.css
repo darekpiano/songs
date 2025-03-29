@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  background: #ffffff;
 }
 
 .songLink {
@@ -16,7 +17,7 @@
 .songItem {
   display: block;
   padding: 12px;
-  background: white;
+  background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -30,26 +31,26 @@
 .songItem h3 {
   margin: 0;
   font-size: 16px;
-  color: #333;
+  color: #1a202c;
   font-weight: 500;
 }
 
 .songItem p {
   margin: 4px 0 0;
   font-size: 14px;
-  color: #666;
+  color: #4a5568;
 }
 
 .title {
   margin: 0;
   font-size: 1.2rem;
-  color: #333;
+  color: #1a202c;
 }
 
 .author {
   margin: 0.5rem 0 0;
   font-size: 0.9rem;
-  color: #666;
+  color: #4a5568;
 }
 
 .tags {
@@ -60,17 +61,18 @@
 }
 
 .tag {
-  background: #e9ecef;
+  background: #e0e0e0;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 0.8rem;
-  color: #495057;
+  color: #1a202c;
 }
 
 .loading, .error {
   text-align: center;
   padding: 2rem;
   font-size: 1.2rem;
+  color: #1a202c;
 }
 
 .error {
@@ -81,17 +83,21 @@
   .songList {
     padding: 8px;
     gap: 8px;
+    background: #ffffff;
   }
 
   .songItem {
     padding: 12px;
+    background: #ffffff;
   }
 
   .songItem h3 {
     font-size: 15px;
+    color: #1a202c;
   }
 
   .songItem p {
     font-size: 13px;
+    color: #4a5568;
   }
 } 
