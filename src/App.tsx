@@ -14,7 +14,7 @@ function App() {
             <div className="quote-source">Psalm 96:1</div>
           </div>
           <div className="author">
-            DaroΣigma
+            darekPiano - DΣigma
           </div>
         </header>
         <main>
