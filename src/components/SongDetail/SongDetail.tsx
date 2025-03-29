@@ -97,7 +97,10 @@ export const SongDetail = () => {
       <div key={index} className={styles.verse}>
         <pre className={styles.verseContent}>
           {pairs.map((pair, pairIndex) => (
-            <div key={pairIndex} className={styles.linePair}>
+            <div 
+              key={pairIndex} 
+              className={`${styles.linePair} ${!showChords ? styles.chordsHidden : ''}`}
+            >
               {showChords && (
                 <div className={styles.chordLine}>
                   {pair[0]}
