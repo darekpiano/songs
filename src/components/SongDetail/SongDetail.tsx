@@ -52,7 +52,9 @@ export const SongDetail = () => {
   }
 
   const isChordLine = (line: string) => {
-    return line.trim().match(/^[A-Ga-gm#b0-9\s]+$/);
+    // Sprawdź, czy linia zawiera akordy w formacie "Em D/F# G Am" itp.
+    const chordPattern = /^[\s]*([A-G][m|maj|dim|aug|sus|add]?\d*[/#]?[A-G]?[\s]+)*[A-G][m|maj|dim|aug|sus|add]?\d*[/#]?[A-G]?[\s]*$/;
+    return chordPattern.test(line.trim());
   };
 
   return (
@@ -122,4 +124,4 @@ export const SongDetail = () => {
       </div>
     </div>
   );
-} 
+};
