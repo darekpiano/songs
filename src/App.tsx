@@ -9,6 +9,13 @@ function App() {
       <div className="app">
         <header>
           <h1>Songbook</h1>
+          <div className="bible-quote">
+            "Śpiewajcie Panu pieśń nową, śpiewajcie Panu, wszystkie krainy!" 
+            <div className="quote-source">Psalm 96:1</div>
+          </div>
+          <div className="author">
+            DaroΣigma
+          </div>
         </header>
         <main>
           <Routes>

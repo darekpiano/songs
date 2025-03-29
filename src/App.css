@@ -69,6 +69,28 @@ header h1 {
   color: #1a202c;
 }
 
+.bible-quote {
+  font-size: 14px;
+  color: #4a5568;
+  margin-top: 8px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.quote-source {
+  font-size: 12px;
+  color: #718096;
+  margin-top: 4px;
+  font-style: normal;
+}
+
+.author {
+  font-size: 12px;
+  color: #2d3748;
+  margin-top: 8px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
 /* Ukryj nagłówek na stronie szczegółów piosenki */
 .song-detail header {
   display: none;
@@ -113,6 +135,22 @@ h2 {
     font-size: 24px;
     color: #1a202c;
     font-weight: 600;
+  }
+  
+  .bible-quote {
+    font-size: 12px;
+    margin-top: 6px;
+    padding: 0 12px;
+  }
+  
+  .quote-source {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+  
+  .author {
+    font-size: 10px;
+    margin-top: 6px;
   }
   
   main {
