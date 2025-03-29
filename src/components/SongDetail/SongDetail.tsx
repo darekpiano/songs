@@ -52,9 +52,19 @@ export const SongDetail = () => {
   }
 
   const isChordLine = (line: string) => {
-    // Sprawdź, czy linia zawiera akordy w formacie "Em D/F# G Am" itp.
-    const chordPattern = /^[\s]*([A-G][m|maj|dim|aug|sus|add]?\d*[/#]?[A-G]?[\s]+)*[A-G][m|maj|dim|aug|sus|add]?\d*[/#]?[A-G]?[\s]*$/;
-    return chordPattern.test(line.trim());
+    // Usuń spacje z początku i końca linii
+    const trimmedLine = line.trim();
+    
+    // Jeśli linia jest pusta, nie jest to linia z akordami
+    if (!trimmedLine) return false;
+    
+    // Sprawdź czy linia zawiera tylko akordy i spacje
+    // Akceptujemy podstawowe akordy (A-G), z możliwymi modyfikatorami (m, #, b)
+    // oraz ukośnikami dla akordów z basem (np. D/F#)
+    return /^[A-G][#b]?m?(aj|dim|aug|sus)?[0-9]*(\/[A-G][#b]?)?\s*$/.test(trimmedLine) || 
+           trimmedLine.split(/\s+/).every(word => 
+             /^[A-G][#b]?m?(aj|dim|aug|sus)?[0-9]*(\/[A-G][#b]?)?$/.test(word)
+           );
   };
 
   return (
